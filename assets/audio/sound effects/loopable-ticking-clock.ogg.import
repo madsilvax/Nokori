@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c6hdtsqdnchc"
+path="res://.godot/imported/loopable-ticking-clock.ogg-24024b4b8822a48c8da8b4f587f1edff.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/loopable-ticking-clock.ogg"
+dest_files=["res://.godot/imported/loopable-ticking-clock.ogg-24024b4b8822a48c8da8b4f587f1edff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

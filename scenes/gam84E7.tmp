@@ -1,0 +1,340 @@
+[gd_scene load_steps=16 format=4 uid="uid://bk62p281jul6n"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_yowi4"]
+[ext_resource type="PackedScene" uid="uid://bme6votjlpjmy" path="res://scenes/player.tscn" id="2_55jwu"]
+[ext_resource type="Texture2D" uid="uid://c35xc3g006uyi" path="res://assets/environment/stringstar fields/background_0.png" id="2_bu8ko"]
+[ext_resource type="Texture2D" uid="uid://dhf2ntrhrr03u" path="res://assets/environment/stringstar fields/tileset.png" id="2_ds7kk"]
+[ext_resource type="Texture2D" uid="uid://d1ppa5xb7bsh" path="res://assets/environment/stringstar fields/background_1.png" id="3_htll0"]
+[ext_resource type="PackedScene" uid="uid://bcwnavofomvke" path="res://scenes/action_area.tscn" id="4_dvvhx"]
+[ext_resource type="Texture2D" uid="uid://xaprf6snv7b7" path="res://assets/environment/stringstar fields/background_2.png" id="4_lnx1t"]
+[ext_resource type="Texture2D" uid="uid://b6kh4g4v0qp0f" path="res://assets/characters/hikari/Pixel-art-fox-580x386.jpg" id="5_rqgpn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry3ua"]
+texture = ExtResource("2_ds7kk")
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:4/0/physics_layer_0/polygon_0/one_way = true
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:4/0/physics_layer_0/polygon_0/one_way = true
+7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:4/0/physics_layer_0/polygon_0/one_way = true
+8:4/0 = 0
+8:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:4/0/physics_layer_0/polygon_0/one_way = true
+9:4/0 = 0
+9:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:4/0/physics_layer_0/polygon_0/one_way = true
+0:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+9:7/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+0:9/0 = 0
+0:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:9/0 = 0
+1:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:9/0 = 0
+2:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:9/0 = 0
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:9/0 = 0
+4:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:9/0 = 0
+5:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:9/0 = 0
+6:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:9/0 = 0
+7:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:9/0 = 0
+8:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:9/0 = 0
+10:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:9/0 = 0
+11:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:9/0 = 0
+12:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:9/0 = 0
+13:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:9/0 = 0
+14:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:9/0 = 0
+15:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+16:9/0 = 0
+16:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+17:9/0 = 0
+17:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:10/0 = 0
+0:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:10/0 = 0
+1:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:10/0 = 0
+2:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:10/0 = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:10/0 = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:10/0 = 0
+5:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:10/0 = 0
+6:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:10/0 = 0
+7:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:10/0 = 0
+8:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:10/0 = 0
+9:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/size_in_atlas = Vector2i(7, 9)
+11:0/0 = 0
+7:5/0 = 0
+3:3/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+3:7/0 = 0
+3:8/0 = 0
+2:8/0 = 0
+1:8/0 = 0
+0:8/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+6:7/0 = 0
+7:8/0 = 0
+7:7/0 = 0
+8:8/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_73c35"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ry3ua")
+
+[sub_resource type="Gradient" id="Gradient_x1je6"]
+offsets = PackedFloat32Array(0, 0.681818)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_881ln"]
+gradient = SubResource("Gradient_x1je6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_vbp5b"]
+offsets = PackedFloat32Array(0, 0.675325)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_20dbq"]
+gradient = SubResource("Gradient_vbp5b")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kwus"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_yowi4")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(331.2, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.15, 0.8)
+texture = ExtResource("2_bu8ko")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(331.2, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(1.15, 0.8)
+texture = ExtResource("3_htll0")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(331.2, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(1.15, 0.8)
+texture = ExtResource("4_lnx1t")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAkAAAABAAkAAAAAAAkAAAACAAkAAAAAAAkAAAADAAkAAAAAAAkAAAAEAAkAAAAAAAkAAAAFAAkAAAAAAAkAAAAGAAkAAAAAAAkAAAAHAAkAAAAAAAkAAAAIAAkAAAAAAAkAAAAJAAkAAAAAAAkAAAAKAAkAAAAAAAkAAAALAAkAAAAAAAkAAAAMAAkAAAAAAAkAAAANAAkAAAAAAAkAAAAAAAQAAAALAAAAAAAOAAkAAAAAAAkAAAAPAAkAAAAAAAkAAAAQAAkAAAAAAAkAAAARAAkAAAAAAAkAAAASAAkAAAAAAAkAAAATAAkAAAAAAAkAAAAUAAkAAAAAAAkAAAAVAAkAAAAAAAkAAAAWAAkAAAAAAAkAAAAXAAkAAAAAAAkAAAAYAAkAAAAAAAkAAAAZAAkAAAAAAAkAAAAaAAkAAAAAAAkAAAAbAAkAAAAAAAkAAAAcAAkAAAAAAAkAAAAdAAkAAAAAAAkAAAAeAAkAAAAAAAkAAAAHAAgAAAADAAgAAAAIAAgAAAADAAgAAAAGAAYAAAACAAYAAAAGAAcAAAACAAcAAAAGAAUAAAACAAUAAAAGAAgAAAACAAgAAAAJAAgAAAADAAgAAAD+/wgAAAADAAgAAAD+/wcAAAADAAcAAAD+/wYAAAADAAYAAAD+/wUAAAADAAUAAAD9/wUAAAACAAUAAAD9/wYAAAACAAYAAAD9/wcAAAACAAcAAAD9/wgAAAACAAgAAAD8/wgAAAABAAgAAAD8/wcAAAABAAcAAAD8/wYAAAABAAYAAAD8/wUAAAABAAUAAAD7/wUAAAAAAAUAAAD7/wYAAAAAAAYAAAD7/wcAAAAAAAcAAAD7/wgAAAAAAAgAAAD//wkAAAAAAAkAAAD+/wkAAAAAAAkAAAD9/wkAAAAAAAkAAAD8/wkAAAAAAAkAAAD7/wkAAAAAAAkAAAAEAAgAAAAAAAgAAAAEAAcAAAAAAAcAAAAEAAYAAAAAAAYAAAAEAAUAAAAAAAUAAAAFAAUAAAABAAUAAAAFAAYAAAABAAYAAAAFAAcAAAABAAcAAAAFAAgAAAABAAgAAAAHAAcAAAADAAcAAAAHAAYAAAADAAYAAAAHAAUAAAADAAUAAAASAAgAAAABAAgAAAAUAAgAAAADAAgAAAATAAgAAAACAAgAAAARAAgAAAAAAAgAAAARAAcAAAAAAAcAAAARAAYAAAAAAAYAAAARAAUAAAAAAAUAAAAUAAcAAAADAAcAAAATAAcAAAACAAcAAAASAAcAAAABAAcAAAASAAYAAAABAAYAAAATAAYAAAACAAYAAAAUAAYAAAADAAYAAAASAAUAAAABAAUAAAATAAUAAAACAAUAAAAUAAUAAAADAAUAAAAVAAgAAAAAAAgAAAAVAAcAAAAAAAcAAAAVAAYAAAAAAAYAAAAVAAUAAAAAAAUAAAAWAAUAAAABAAUAAAAWAAYAAAABAAYAAAAWAAcAAAABAAcAAAAWAAgAAAABAAgAAAAXAAgAAAACAAgAAAAXAAcAAAACAAcAAAAXAAYAAAACAAYAAAAXAAUAAAACAAUAAAAYAAgAAAADAAgAAAAYAAcAAAADAAcAAAAYAAYAAAADAAYAAAAYAAUAAAADAAUAAAD6/wkAAAAAAAkAAAD5/wkAAAAAAAkAAAD4/wkAAAAAAAkAAAD3/wkAAAAAAAkAAAD2/wkAAAAAAAkAAAD1/wkAAAAAAAkAAAA=")
+tile_set = SubResource("TileSet_73c35")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="smallthree" type="Node2D" parent="PointLight2D"]
+position = Vector2(-53, 119)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D/smallthree"]
+color = Color(0.882353, 0.72549, 0.560784, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D/smallthree"]
+position = Vector2(15, 13)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="smallthree2" type="Node2D" parent="PointLight2D"]
+position = Vector2(91, 119)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D/smallthree2"]
+color = Color(0.882353, 0.72549, 0.560784, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D/smallthree2"]
+position = Vector2(15, 13)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+energy = 1.5
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="smallthree3" type="Node2D" parent="PointLight2D"]
+position = Vector2(91, 119)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D/smallthree3"]
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D/smallthree3"]
+position = Vector2(15, 13)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="tallthree" type="Node2D" parent="PointLight2D"]
+position = Vector2(12, 92)
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D/tallthree"]
+position = Vector2(-36, 4)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D/tallthree"]
+position = Vector2(-18, 27)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_20dbq")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D3" type="PointLight2D" parent="PointLight2D/tallthree"]
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_20dbq")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D4" type="PointLight2D" parent="PointLight2D/tallthree"]
+position = Vector2(15, -3)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D5" type="PointLight2D" parent="PointLight2D/tallthree"]
+position = Vector2(24, 13)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_20dbq")
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.797702, 0.570523, 0.61591, 1)
+energy = 1.3
+blend_mode = 1
+range_layer_min = -200
+metadata/_edit_lock_ = true
+
+[node name="npc\'s" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="hikari" type="Node2D" parent="npc\'s"]
+position = Vector2(335, 144)
+
+[node name="action_area" parent="npc\'s/hikari" instance=ExtResource("4_dvvhx")]
+position = Vector2(0, -10)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="npc\'s/hikari"]
+position = Vector2(0, -4)
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("5_rqgpn")
+metadata/_edit_lock_ = true
+
+[node name="light" type="Node2D" parent="npc\'s/hikari"]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="npc\'s/hikari/light"]
+position = Vector2(-36, -25)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+
+[node name="PointLight2D2" type="PointLight2D" parent="npc\'s/hikari/light"]
+position = Vector2(28, -25)
+color = Color(0.882353, 0.72549, 0.560784, 1)
+texture = SubResource("GradientTexture2D_881ln")
+
+[node name="player" parent="." instance=ExtResource("2_55jwu")]
+position = Vector2(40, 90)
+
+[node name="gameover" type="Area2D" parent="."]
+position = Vector2(488, 134)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gameover"]
+shape = SubResource("RectangleShape2D_4kwus")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="gameover" to="." method="_on_gameover_body_entered"]
