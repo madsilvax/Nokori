@@ -842,11 +842,13 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_unuk7")
 
 [node name="soundFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("5_r7arc")
 autoplay = true
 parameters/looping = true
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("5_sq3q2")
 volume_db = -13.0
 autoplay = true
@@ -862,9 +864,8 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 drag_horizontal_enabled = true
-drag_left_margin = 1.0
+drag_left_margin = 0.4
 drag_top_margin = 1.0
-drag_right_margin = 0.0
 drag_bottom_margin = 1.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
@@ -1037,6 +1038,47 @@ theme_override_font_sizes/font_size = 48
 text = "\"O coração arde,
 mesmo quando a chuva cai.\"
 -Tite Kubo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="control sound quote" type="Control" parent="UI/QUOTE"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/QUOTE/control sound quote"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/QUOTE/control sound quote/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/QUOTE/control sound quote/ColorRect/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_mv5br")
+theme_override_font_sizes/font_size = 48
+text = "Para uma melhor experiência
+utilize fones de ouvido."
 horizontal_alignment = 1
 vertical_alignment = 1
 

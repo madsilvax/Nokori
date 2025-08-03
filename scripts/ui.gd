@@ -22,6 +22,11 @@ func _on_menu_principal_pressed() -> void:
 func _on_sair_do_jogo_pressed() -> void:
 	get_tree().quit()
 
+func sound_quote():
+	$"QUOTE/control sound quote".show()
+	await get_tree().create_timer(6).timeout
+	$"QUOTE/control sound quote".hide()
+
 func initial_quote():
 	$"QUOTE/control initital quote".show()
 	await get_tree().create_timer(6).timeout

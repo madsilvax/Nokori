@@ -11,6 +11,8 @@ var nozomi_stage = false
 
 func _ready() -> void:
 	get_tree().paused = true
+	ui.sound_quote()
+	await get_tree().create_timer(6).timeout
 	ui.initial_quote()
 	await get_tree().create_timer(6).timeout
 	get_tree().paused = false
@@ -41,13 +43,13 @@ func _input(event):
 			$"npc's/haruka/haruka_area/CollisionShape2D".queue_free()
 			$player/Light/PointLight2D_3.hide()
 			$player/Light/PointLight2D_2.show()
-			$"npc's/nozomi/AudioStreamPlayer2D".play()
 		if nozomi_stage == true:
 			$"npc's/nozomi/AudioStreamPlayer2D".stop()
 			$"npc's/nozomi/nozomi_area/CollisionShape2D".queue_free()
 			$player.hide()
 			$cutscene/anim_death.show()
 			$cutscene/anim_death.play()
+			$"npc's/nozomi/light".show()
 			await get_tree().create_timer(8).timeout
 			ui.credits()
 			$player/Light/PointLight2D_2.hide()
@@ -55,10 +57,7 @@ func _input(event):
 			await get_tree().create_timer(30).timeout
 			$cutscene/anim_reborn.show()
 			$cutscene/anim_reborn.play()
-			$cutscene/flower_light.show()
 			await get_tree().create_timer(6).timeout
-			$"npc's/nozomi/light".show()
-			await get_tree().create_timer(2).timeout
 			ui.final_quote()
 			await get_tree().create_timer(10).timeout
 			ui.gameover()
