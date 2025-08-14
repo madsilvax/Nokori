@@ -41,6 +41,8 @@ curve = SubResource("Curve_gi2vp")
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(200, 200, 1)
+angular_velocity_min = -40.98
+angular_velocity_max = -1.60933e-05
 gravity = Vector3(100, 20, 0)
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = 6.0
@@ -1495,9 +1497,8 @@ animations = [{
 script = ExtResource("1_yowi4")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(101, 77)
-rotation = 0.237053
-scale = Vector2(2.70555, 1)
+position = Vector2(66, 41)
+scale = Vector2(1e-05, 1e-05)
 amount = 25
 process_material = SubResource("ParticleProcessMaterial_vyc2q")
 texture = SubResource("GradientTexture2D_odyep")
