@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://bme6votjlpjmy"]
+[gd_scene load_steps=131 format=3 uid="uid://bme6votjlpjmy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n4ti4"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_1glsv"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dp75ulllcnkx4" path="res://assets/characters/sora/sora walk animation -2.png" id="8_qy1ai"]
 [ext_resource type="Texture2D" uid="uid://bbyre7y2wrngw" path="res://assets/characters/sora/sora walk animation -3.png" id="9_mmygh"]
 [ext_resource type="VideoStream" path="res://assets/interface/creditos.ogv" id="14_433eu"]
+[ext_resource type="Texture2D" uid="uid://fwbiv7nc6488" path="res://assets/environment/petalas.tres" id="15_mbogf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82p4y"]
 atlas = ExtResource("2_xdq5t")
@@ -804,6 +805,34 @@ height = 32.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ti7r"]
 load_path = "res://.godot/imported/pause.png-1e2632bbb1c0e8e5c8b266860ff9c977.ctex"
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x7j0g"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 16
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_p106n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.498316, 1), 0.0, 0.0, 0, 0, Vector2(0.521886, 1), 0.0, 0.0, 0, 0, Vector2(0.895623, 0.303256), -4.00614, -4.00614, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_bomww"]
+curve = SubResource("Curve_p106n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yfdx6"]
+lifetime_randomness = 0.6
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 1, 1)
+gravity = Vector3(20, 50, 0)
+scale_min = 0.6
+alpha_curve = SubResource("CurveTexture_bomww")
+hue_variation_min = -1.0
+hue_variation_max = -0.8
+anim_speed_max = 0.2
+anim_offset_max = 1.0
+turbulence_enabled = true
+
 [node name="player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_n4ti4")
@@ -1147,6 +1176,15 @@ text = "menu principal"
 layout_mode = 2
 theme = ExtResource("5_mv5br")
 text = "sair do jogo"
+
+[node name="petalas" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_x7j0g")
+position = Vector2(0, -90)
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_yfdx6")
+texture = ExtResource("15_mbogf")
+lifetime = 10.0
+randomness = 0.6
 
 [connection signal="pressed" from="UI/PAUSE/control_pause/VBoxContainer/continuar" to="UI" method="_on_continuar_pressed"]
 [connection signal="pressed" from="UI/PAUSE/control_pause/VBoxContainer/recomeçar" to="UI" method="_on_recomeçar_pressed"]
