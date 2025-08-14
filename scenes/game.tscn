@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=4 uid="uid://bk62p281jul6n"]
+[gd_scene load_steps=214 format=4 uid="uid://bk62p281jul6n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yowi4"]
 [ext_resource type="PackedScene" uid="uid://bme6votjlpjmy" path="res://scenes/player.tscn" id="2_55jwu"]
@@ -14,6 +14,52 @@
 [ext_resource type="AudioStream" uid="uid://c6hdtsqdnchc" path="res://assets/audio/sound effects/loopable-ticking-clock.ogg" id="11_qgxnv"]
 [ext_resource type="Texture2D" uid="uid://bootw45enerjk" path="res://assets/characters/sora/sora death animation.png" id="12_5m122"]
 [ext_resource type="Texture2D" uid="uid://uoupnrupw4oe" path="res://assets/characters/sora/sora reborn.png" id="13_ghoiv"]
+
+[sub_resource type="Gradient" id="Gradient_8elp4"]
+colors = PackedColorArray(1, 1, 1, 0.0705882, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tjats"]
+gradient = SubResource("Gradient_8elp4")
+
+[sub_resource type="Gradient" id="Gradient_4nxrd"]
+offsets = PackedFloat32Array(0, 0.565574, 0.991803)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.819608, 0.819608, 0.819608, 0.729412)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8x01w"]
+gradient = SubResource("Gradient_4nxrd")
+
+[sub_resource type="Curve" id="Curve_gi2vp"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.112016, 75.815), 0.0, 0.0, 0, 0, Vector2(0.213849, -1.0614), 0.0, 0.0, 0, 0, Vector2(0.317719, 79.7574), 0.0, 0.0, 0, 0, Vector2(0.423625, -1.0614), 0.0, 0.0, 0, 0, Vector2(0.517312, 77.7862), 0.0, 0.0, 0, 0, Vector2(0.615071, 0.90979), 0.0, 0.0, 0, 0, Vector2(0.720978, 81.7286), 0.0, 0.0, 0, 0, Vector2(0.814664, 6.82335), 0.0, 0.0, 0, 0, Vector2(0.910387, 56.1031), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 11
+
+[sub_resource type="CurveTexture" id="CurveTexture_xgsng"]
+curve = SubResource("Curve_gi2vp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vyc2q"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+gravity = Vector3(100, 20, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 6.0
+tangential_accel_curve = SubResource("CurveTexture_xgsng")
+damping_max = 100.0
+scale_min = 0.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_8x01w")
+color_initial_ramp = SubResource("GradientTexture1D_tjats")
+
+[sub_resource type="Gradient" id="Gradient_ybjtq"]
+offsets = PackedFloat32Array(0, 0.494949, 1)
+colors = PackedColorArray(0.945098, 0.929412, 0.607843, 0.690196, 0, 0.756862, 0.40637, 1, 1, 1, 1, 0.698039)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odyep"]
+gradient = SubResource("Gradient_ybjtq")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry3ua"]
 texture = ExtResource("2_ds7kk")
@@ -1447,6 +1493,18 @@ animations = [{
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_yowi4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(101, 77)
+rotation = 0.237053
+scale = Vector2(2.70555, 1)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_vyc2q")
+texture = SubResource("GradientTexture2D_odyep")
+lifetime = 5.0
+preprocess = 2.0
+randomness = 1.0
+trail_lifetime = 0.6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
