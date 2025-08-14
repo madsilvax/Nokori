@@ -1179,7 +1179,7 @@ text = "sair do jogo"
 
 [node name="petalas" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_x7j0g")
-position = Vector2(0, -90)
+position = Vector2(-2, -130)
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_yfdx6")
 texture = ExtResource("15_mbogf")
