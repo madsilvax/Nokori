@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://bme6votjlpjmy"]
+[gd_scene load_steps=140 format=3 uid="uid://bme6votjlpjmy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n4ti4"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_1glsv"]
@@ -833,6 +833,52 @@ anim_speed_max = 0.2
 anim_offset_max = 1.0
 turbulence_enabled = true
 
+[sub_resource type="Gradient" id="Gradient_8wjvx"]
+colors = PackedColorArray(1, 1, 1, 0.0941176, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j0x4k"]
+gradient = SubResource("Gradient_8wjvx")
+
+[sub_resource type="Gradient" id="Gradient_8ghrh"]
+offsets = PackedFloat32Array(0, 0.485961, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3ohxv"]
+gradient = SubResource("Gradient_8ghrh")
+
+[sub_resource type="Curve" id="Curve_grkxh"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0997963, 58.0743), 0.0, 0.0, 0, 0, Vector2(0.187373, -18.8021), 0.0, 0.0, 0, 0, Vector2(0.285132, 50.1895), 0.0, 0.0, 0, 0, Vector2(0.376782, -16.8309), 0.0, 0.0, 0, 0, Vector2(0.462322, 50.1895), 0.0, 0.0, 0, 0, Vector2(0.560081, -26.6869), 0.0, 0.0, 0, 0, Vector2(0.676171, 50.1895), 0.0, 0.0, 0, 0, Vector2(0.780041, -24.7157), 0.0, 0.0, 0, 0, Vector2(0.900204, 46.2472), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 11
+
+[sub_resource type="CurveTexture" id="CurveTexture_i85hm"]
+curve = SubResource("Curve_grkxh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_avua4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+gravity = Vector3(100, 20, 0)
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 6.0
+tangential_accel_curve = SubResource("CurveTexture_i85hm")
+damping_max = 100.0
+scale_min = 1.5
+scale_max = 1.8
+color_ramp = SubResource("GradientTexture1D_3ohxv")
+color_initial_ramp = SubResource("GradientTexture1D_j0x4k")
+
+[sub_resource type="Gradient" id="Gradient_78f1i"]
+offsets = PackedFloat32Array(0, 0.456566, 1)
+colors = PackedColorArray(0.65098, 0.988235, 0.843137, 0.12549, 0.757214, 0.950451, 0.923619, 0.756863, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vuodq"]
+gradient = SubResource("Gradient_78f1i")
+width = 1
+height = 32
+fill_to = Vector2(0, 1)
+
 [node name="player" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_n4ti4")
@@ -873,13 +919,14 @@ shape = SubResource("CircleShape2D_unuk7")
 [node name="soundFX" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_r7arc")
+volume_db = 17.018
 autoplay = true
 parameters/looping = true
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_sq3q2")
-volume_db = -13.0
+volume_db = 12.408
 autoplay = true
 parameters/looping = true
 
@@ -963,21 +1010,25 @@ grow_vertical = 2
 
 [node name="continuar" type="Button" parent="UI/PAUSE/control_pause/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_mv5br")
 text = "continuar"
 
 [node name="recomeçar" type="Button" parent="UI/PAUSE/control_pause/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_mv5br")
 text = "recomeçar"
 
 [node name="menu principal" type="Button" parent="UI/PAUSE/control_pause/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_mv5br")
 text = "menu principal"
 
 [node name="sair do jogo" type="Button" parent="UI/PAUSE/control_pause/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_mv5br")
 text = "sair do jogo"
 
@@ -1185,6 +1236,17 @@ process_material = SubResource("ParticleProcessMaterial_yfdx6")
 texture = ExtResource("15_mbogf")
 lifetime = 10.0
 randomness = 0.6
+
+[node name="vento" type="GPUParticles2D" parent="."]
+scale = Vector2(1.68, 1)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_avua4")
+texture = SubResource("GradientTexture2D_vuodq")
+lifetime = 5.0
+preprocess = 2.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.6
 
 [connection signal="pressed" from="UI/PAUSE/control_pause/VBoxContainer/continuar" to="UI" method="_on_continuar_pressed"]
 [connection signal="pressed" from="UI/PAUSE/control_pause/VBoxContainer/recomeçar" to="UI" method="_on_recomeçar_pressed"]
