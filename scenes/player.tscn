@@ -935,14 +935,14 @@ zoom = Vector2(6, 6)
 limit_left = 0
 limit_top = 0
 limit_right = 1300
-limit_bottom = 180
+limit_bottom = 280
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 drag_horizontal_enabled = true
 drag_left_margin = 0.4
-drag_top_margin = 1.0
-drag_bottom_margin = 1.0
+drag_top_margin = 0.6
+drag_bottom_margin = 0.6
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
