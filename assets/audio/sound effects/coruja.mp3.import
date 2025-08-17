@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqae7toaepd7p"
+path="res://.godot/imported/coruja.mp3-f1d38ee5f25de4b9980f40e0720c6c12.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound effects/coruja.mp3"
+dest_files=["res://.godot/imported/coruja.mp3-f1d38ee5f25de4b9980f40e0720c6c12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

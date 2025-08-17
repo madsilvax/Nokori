@@ -8,6 +8,7 @@ var nozomi_stage = false
 
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var ui: Control = $player/UI
+@onready var forest_sfx = $forest_sound
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -16,6 +17,8 @@ func _ready() -> void:
 	ui.initial_quote()
 	await get_tree().create_timer(6).timeout
 	get_tree().paused = false
+	
+	forest_sfx.play()
 
 func _input(event):
 	if Input.is_action_just_pressed("action"):
@@ -51,6 +54,7 @@ func _input(event):
 			$cutscene/anim_death.play()
 			$"npc's/nozomi/light".show()
 			await get_tree().create_timer(8).timeout
+			forest_sfx.stop()
 			ui.credits()
 			$player/Light/PointLight2D_2.hide()
 			$cutscene/npc.show()
