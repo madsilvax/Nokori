@@ -1,8 +1,12 @@
 extends Control
 
 @onready var fade: ColorRect = $Fade
+@onready var motion = $logo_anim
 
 func _ready():
+	
+	motion.play("logo_motion")
+	
 	if not is_instance_valid(fade):
 		_create_fade()
 	
