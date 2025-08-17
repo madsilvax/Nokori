@@ -1,38 +1,45 @@
 extends CharacterBody2D
 
 var SPEED = 15.0
-const JUMP_VELOCITY = -40.0
+var RUN_SPEED = 30.0
+const JUMP_VELOCITY = -100.0
+const GRAVITY = 1200.0
+const FALL_MULTIPLIER = 0.8  # reduz a gravidade enquanto sobe
+
 @onready var animation : AnimatedSprite2D = $animation
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func _process(delta: float) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Gravidade variável (subindo mais devagar)
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y < 0:  # subindo
+			velocity.y += GRAVITY * 0.3 * delta  # sobe bem devagar
+		else:  # caindo
+			velocity.y += GRAVITY * 0.5 * delta
 
-	# Handle jump.
+	# Pulo
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	var current_speed = SPEED
+	if Input.is_action_pressed("run"):
+		current_speed = RUN_SPEED
+
+	# Direção horizontal
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction != 0:
-		velocity.x = direction * SPEED
-		animation.play("walk")
-		animation.scale.x = direction/2
-		
+		velocity.x = direction * current_speed
+		animation.play("walk")  # sempre walk quando houver movimento
+		animation.scale.x = direction / 2
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation.play("idle")
 
 	move_and_slide()
 
+# Troca de animações extras
 func set_anim1():
 	animation = $"animation-1"
 	$animation.hide()
