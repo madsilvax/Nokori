@@ -858,8 +858,8 @@ curve = SubResource("Curve_grkxh")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_avua4"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(200, 200, 1)
-gravity = Vector3(100, 20, 0)
+emission_box_extents = Vector3(20, 150, 1)
+gravity = Vector3(100, 10, 0)
 tangential_accel_min = -2.23517e-06
 tangential_accel_max = 6.0
 tangential_accel_curve = SubResource("CurveTexture_i85hm")
@@ -1238,13 +1238,13 @@ lifetime = 10.0
 randomness = 0.6
 
 [node name="vento" type="GPUParticles2D" parent="."]
-scale = Vector2(1.68, 1)
-amount = 15
+position = Vector2(-168, 0)
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_avua4")
 texture = SubResource("GradientTexture2D_vuodq")
-lifetime = 5.0
+lifetime = 3.0
 preprocess = 2.0
-randomness = 1.0
+randomness = 0.6
 trail_enabled = true
 trail_lifetime = 0.6
 
