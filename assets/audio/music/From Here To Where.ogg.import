@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/From Here To Where.ogg-cced2215b6c18709b0b81e
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

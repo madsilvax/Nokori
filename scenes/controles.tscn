@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://xmpxtu5674oo"]
+
+[ext_resource type="Script" path="res://scripts/controles.gd" id="1_uxvye"]
+
+[node name="Controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uxvye")
+
+[node name="FadeAnimation" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1926.0
+offset_bottom = 1086.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer_transitiong" type="Timer" parent="."]
+wait_time = 4.0
