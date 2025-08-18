@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://bme6votjlpjmy"]
+[gd_scene load_steps=138 format=3 uid="uid://bme6votjlpjmy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_n4ti4"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_1glsv"]
@@ -8,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bvdn7osuqlk1" path="res://assets/characters/sora/sora idle animation -2.png" id="4_4u5ot"]
 [ext_resource type="Texture2D" uid="uid://sk5cpc7o8s7f" path="res://assets/characters/sora/sora idle animation -3.png" id="5_a7f8q"]
 [ext_resource type="Theme" uid="uid://b26bm7eckslhv" path="res://assets/interface/nokori.tres" id="5_mv5br"]
-[ext_resource type="AudioStream" uid="uid://bginol4ui3hrw" path="res://assets/audio/sound effects/Wind.ogg" id="5_r7arc"]
-[ext_resource type="AudioStream" uid="uid://deajjw8agdx0o" path="res://assets/audio/music/From Here To Where.ogg" id="5_sq3q2"]
 [ext_resource type="Texture2D" uid="uid://dm25dv8bg8jg2" path="res://assets/characters/sora/sora walk animation -1.png" id="7_l2rgc"]
 [ext_resource type="Texture2D" uid="uid://dp75ulllcnkx4" path="res://assets/characters/sora/sora walk animation -2.png" id="8_qy1ai"]
 [ext_resource type="Texture2D" uid="uid://bbyre7y2wrngw" path="res://assets/characters/sora/sora walk animation -3.png" id="9_mmygh"]
@@ -798,7 +796,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gu4s5"]
 radius = 8.0
-height = 32.0
+height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_unuk7"]
 
@@ -908,6 +906,7 @@ sprite_frames = SubResource("SpriteFrames_hpe4v")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_gu4s5")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -916,25 +915,11 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_unuk7")
 
-[node name="soundFX" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
-stream = ExtResource("5_r7arc")
-volume_db = 17.018
-autoplay = true
-parameters/looping = true
-
-[node name="music" type="AudioStreamPlayer2D" parent="."]
-process_mode = 3
-stream = ExtResource("5_sq3q2")
-volume_db = 9.383
-autoplay = true
-parameters/looping = true
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 limit_left = 0
 limit_top = 0
-limit_right = 1300
+limit_right = 4200
 limit_bottom = 280
 limit_smoothed = true
 position_smoothing_enabled = true

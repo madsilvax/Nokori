@@ -8,7 +8,6 @@ var nozomi_stage = false
 
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var ui: Control = $player/UI
-@onready var forest_sfx = $forest_sound
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -17,8 +16,6 @@ func _ready() -> void:
 	ui.initial_quote()
 	await get_tree().create_timer(6).timeout
 	get_tree().paused = false
-	
-	forest_sfx.play()
 
 func _input(event):
 	if Input.is_action_just_pressed("action"):
@@ -30,6 +27,7 @@ func _input(event):
 			$"npc's/hikari/hikari_area/CollisionShape2D".queue_free()
 			$player/Light/PointLight2D_5.hide()
 			$player/Light/PointLight2D_4.show()
+			$"npc's/yume/cisne".play()
 		if yume_stage == true:
 			get_node("/root/game/player").set_anim2()
 			await get_tree().create_timer(0.3).timeout
@@ -38,6 +36,8 @@ func _input(event):
 			$"npc's/yume/yume_area/CollisionShape2D".queue_free()
 			$player/Light/PointLight2D_4.hide()
 			$player/Light/PointLight2D_3.show()
+			$"npc's/yume/cisne".stop()
+			$"npc's/haruka/falcao".play()
 		if haruka_stage == true:
 			get_node("/root/game/player").set_anim3()
 			await get_tree().create_timer(0.3).timeout
@@ -46,15 +46,21 @@ func _input(event):
 			$"npc's/haruka/haruka_area/CollisionShape2D".queue_free()
 			$player/Light/PointLight2D_3.hide()
 			$player/Light/PointLight2D_2.show()
+			$"npc's/haruka/falcao".stop()
+			$"npc's/nozomi/coruja".play()
 		if nozomi_stage == true:
-			$"npc's/nozomi/AudioStreamPlayer2D".stop()
+			$"npc's/nozomi/coruja".stop()
+			$"npc's/nozomi/relogio".play()
 			$"npc's/nozomi/nozomi_area/CollisionShape2D".queue_free()
 			$player.hide()
 			$cutscene/anim_death.show()
 			$cutscene/anim_death.play()
 			$"npc's/nozomi/light".show()
 			await get_tree().create_timer(8).timeout
-			forest_sfx.stop()
+			$"npc's/nozomi/relogio".stop()
+			$player/forest_sound.stop()
+			$player/vento_sound.stop()
+			$player/music.stop()
 			ui.credits()
 			$player/Light/PointLight2D_2.hide()
 			$cutscene/npc.show()

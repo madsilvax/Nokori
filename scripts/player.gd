@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var SPEED = 15.0
-var RUN_SPEED = 30.0
-const JUMP_VELOCITY = -100.0
+var SPEED = 20.0
+var RUN_SPEED = 50.0
+const JUMP_VELOCITY = -150.0
 const GRAVITY = 1200.0
 const FALL_MULTIPLIER = 0.8  # reduz a gravidade enquanto sobe
 

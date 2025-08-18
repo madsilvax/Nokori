@@ -62,4 +62,4 @@ run={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.203922, 0.207843, 0.372549, 1)
+environment/defaults/default_clear_color=Color(0.0745098, 0.113725, 0.188235, 1)
