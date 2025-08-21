@@ -21,38 +21,53 @@ func _input(event):
 	if Input.is_action_just_pressed("action"):
 		if hikari_stage == true:
 			get_node("/root/game/player").set_anim1()
-			await get_tree().create_timer(0.3).timeout
-			$"npc's/hikari/light".show()
-			$"npc's/hikari/CollisionShape2D".queue_free()
-			$"npc's/hikari/hikari_area/CollisionShape2D".queue_free()
+			$sora_fx.play()
+			await get_tree().create_timer(0.5).timeout
 			$player/Light/PointLight2D_5.hide()
 			$player/Light/PointLight2D_4.show()
+			$"npc's/hikari/light".show()
+			$"npc's/hikari/AnimatedSprite2D".play("anim")
+			await get_tree().create_timer(2).timeout
+			$"npc's/hikari/AnimatedSprite2D".play("idle")
+			$"npc's/hikari/CollisionShape2D".queue_free()
+			$"npc's/hikari/hikari_area/CollisionShape2D".queue_free()
 			$"npc's/yume/cisne".play()
 		if yume_stage == true:
 			get_node("/root/game/player").set_anim2()
-			await get_tree().create_timer(0.3).timeout
-			$"npc's/yume/light".show()
-			$"npc's/yume/CollisionShape2D".queue_free()
-			$"npc's/yume/yume_area/CollisionShape2D".queue_free()
+			$sora_fx.play()
+			$"npc's/yume/cisne".stop()
+			await get_tree().create_timer(0.5).timeout
 			$player/Light/PointLight2D_4.hide()
 			$player/Light/PointLight2D_3.show()
-			$"npc's/yume/cisne".stop()
+			$"npc's/yume/light".show()
+			$"npc's/yume/AnimatedSprite2D".play("anim")
+			await get_tree().create_timer(2).timeout
+			$"npc's/yume/AnimatedSprite2D".play("idle")
+			$"npc's/yume/CollisionShape2D".queue_free()
+			$"npc's/yume/yume_area/CollisionShape2D".queue_free()
 			$"npc's/haruka/falcao".play()
 		if haruka_stage == true:
 			get_node("/root/game/player").set_anim3()
-			await get_tree().create_timer(0.3).timeout
-			$"npc's/haruka/light".show()
-			$"npc's/haruka/CollisionShape2D".queue_free()
-			$"npc's/haruka/haruka_area/CollisionShape2D".queue_free()
+			$sora_fx.play()
+			$"npc's/haruka/falcao".stop()
+			await get_tree().create_timer(0.5).timeout
 			$player/Light/PointLight2D_3.hide()
 			$player/Light/PointLight2D_2.show()
-			$"npc's/haruka/falcao".stop()
+			$"npc's/haruka/light".show()
+			#anim
+			await get_tree().create_timer(3).timeout
+			$"npc's/haruka/AnimatedSprite2D".hide()
+			$"npc's/haruka/CollisionShape2D".queue_free()
+			$"npc's/haruka/haruka_area/CollisionShape2D".queue_free()
 			$"npc's/nozomi/coruja".play()
 		if nozomi_stage == true:
-			$"npc's/nozomi/coruja".stop()
+			$sora_fx.play()
 			$"npc's/nozomi/relogio".play()
+			$"npc's/nozomi/coruja".stop()
+			await get_tree().create_timer(0.5).timeout
 			$"npc's/nozomi/nozomi_area/CollisionShape2D".queue_free()
 			$player.hide()
+			get_node("/root/game/player").freeze()
 			$cutscene/anim_death.show()
 			$cutscene/anim_death.play()
 			$"npc's/nozomi/light".show()

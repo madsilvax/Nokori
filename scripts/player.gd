@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var SPEED = 20.0
 var RUN_SPEED = 50.0
-const JUMP_VELOCITY = -150.0
+var JUMP_VELOCITY = -150.0
 const GRAVITY = 1200.0
 const FALL_MULTIPLIER = 0.8  # reduz a gravidade enquanto sobe
 
@@ -10,6 +10,9 @@ const FALL_MULTIPLIER = 0.8  # reduz a gravidade enquanto sobe
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	SPEED = 20.0
+	RUN_SPEED = 50.0
+	JUMP_VELOCITY = -150.0
 
 func _physics_process(delta: float) -> void:
 	# Gravidade variável (subindo mais devagar)
@@ -54,3 +57,8 @@ func set_anim3():
 	animation = $"animation-3"
 	$"animation-2".hide()
 	$"animation-3".show()
+
+func freeze():
+	SPEED = 0
+	RUN_SPEED = 0
+	JUMP_VELOCITY = 0

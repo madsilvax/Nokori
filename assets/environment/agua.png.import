@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qww6ma4umo3"
-path="res://.godot/imported/spritesheet hikari.png-497c75a5fa4065b9336b69e84d2a4662.ctex"
+uid="uid://bk8364h3swcdx"
+path="res://.godot/imported/agua.png-a0d16cd649c622a61d9c1c9621d3e005.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/hikari/spritesheet hikari.png"
-dest_files=["res://.godot/imported/spritesheet hikari.png-497c75a5fa4065b9336b69e84d2a4662.ctex"]
+source_file="res://assets/environment/agua.png"
+dest_files=["res://.godot/imported/agua.png-a0d16cd649c622a61d9c1c9621d3e005.ctex"]
 
 [params]
 
