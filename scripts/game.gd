@@ -22,6 +22,7 @@ func _input(event):
 		if hikari_stage == true:
 			get_node("/root/game/player").set_anim1()
 			$"npc's/hikari/hikari_area/CollisionShape2D".queue_free()
+			$player/luz.play()
 			$player/sora_fx.play()
 			await get_tree().create_timer(0.5).timeout
 			$player/Light/PointLight2D_5.hide()
@@ -36,6 +37,7 @@ func _input(event):
 		if yume_stage == true:
 			get_node("/root/game/player").set_anim2()
 			$"npc's/yume/yume_area/CollisionShape2D".queue_free()
+			$player/luz.play()
 			$player/sora_fx.play()
 			$"npc's/yume/cisne".stop()
 			await get_tree().create_timer(0.5).timeout
@@ -51,6 +53,7 @@ func _input(event):
 		if haruka_stage == true:
 			get_node("/root/game/player").set_anim3()
 			$"npc's/haruka/haruka_area/CollisionShape2D".queue_free()
+			$player/luz.play()
 			$player/sora_fx.play()
 			$"npc's/haruka/falcao".stop()
 			await get_tree().create_timer(0.5).timeout
@@ -59,13 +62,14 @@ func _input(event):
 			$"npc's/haruka/light".show()
 			$"npc's/haruka/espiritos".hide()
 			##anim
-			#await get_tree().create_timer(3).timeout
+			await get_tree().create_timer(2).timeout
 			#$"npc's/haruka/AnimatedSprite2D".hide()
 			$"npc's/haruka/CollisionShape2D".queue_free()
 			$"npc's/nozomi/coruja".play()
 		if nozomi_stage == true:
 			get_node("/root/game/player").freeze()
 			$"npc's/nozomi/nozomi_area/CollisionShape2D".queue_free()
+			$player/luz.play()
 			$player/sora_fx.play()
 			$"npc's/nozomi/relogio".play()
 			$player/forest_sound.stop()

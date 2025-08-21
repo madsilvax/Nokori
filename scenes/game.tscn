@@ -1,4 +1,4 @@
-[gd_scene load_steps=384 format=4 uid="uid://bk62p281jul6n"]
+[gd_scene load_steps=396 format=4 uid="uid://bk62p281jul6n"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yowi4"]
 [ext_resource type="PackedScene" uid="uid://bme6votjlpjmy" path="res://scenes/player.tscn" id="2_55jwu"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bginol4ui3hrw" path="res://assets/audio/sound effects/Wind.ogg" id="21_mbk68"]
 [ext_resource type="AudioStream" uid="uid://deajjw8agdx0o" path="res://assets/audio/music/From Here To Where.ogg" id="22_04wy0"]
 [ext_resource type="AudioStream" uid="uid://d23y6ecne3xw5" path="res://assets/audio/sound effects/sora.mp3" id="29_iq6tm"]
+[ext_resource type="Texture2D" uid="uid://cye80fqy5a4et" path="res://assets/environment/luz.png" id="29_kxlth"]
 [ext_resource type="Texture2D" uid="uid://bkcfojta1it8f" path="res://assets/environment/espirito.png" id="30_laf2x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry3ua"]
@@ -2326,6 +2327,84 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhqp2"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(0, 0, 40, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pemj"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lds0l"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hwaj"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2g8f"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkrrf"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef5yx"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsr36"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiy8y"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnakw"]
+atlas = ExtResource("29_kxlth")
+region = Rect2(0, 0, 40, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujutk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhqp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pemj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lds0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hwaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2g8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkrrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef5yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsr36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiy8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnakw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_440ec"]
 atlas = ExtResource("12_5m122")
 region = Rect2(0, 0, 32, 64)
@@ -4190,6 +4269,13 @@ parameters/looping = true
 
 [node name="sora_fx" type="AudioStreamPlayer2D" parent="player"]
 stream = ExtResource("29_iq6tm")
+
+[node name="luz" type="AnimatedSprite2D" parent="player"]
+modulate = Color(1, 1, 1, 0.882353)
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_ujutk")
+frame = 9
+frame_progress = 1.0
 
 [node name="cutscene" type="Node2D" parent="."]
 position = Vector2(3816, 143)
